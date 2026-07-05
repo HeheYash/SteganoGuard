@@ -45,11 +45,9 @@ Everything runs **entirely in the browser** — no server, no upload, no backend
 
 ## Screenshots
 
-> Add your own screenshots to the `screenshots/` folder — see [screenshots/README.md](screenshots/README.md) for guidance — then swap these placeholders for real `![alt](screenshots/your-file.png)` images.
-
 | Hide Message | Extract Message |
 |---|---|
-| *(screenshot placeholder)* | *(screenshot placeholder)* |
+| ![Hide Message tab](screenshots/hide-tab.png) | ![Extract Message tab](screenshots/extract-tab.png) |
 
 ## How It Works
 
