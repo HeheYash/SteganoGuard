@@ -34,8 +34,9 @@ Everything runs **entirely in the browser** — no server, no upload, no backend
 ## Features
 
 - **LSB Steganography** — hides data in the least significant bit of the R, G, and B channels of each pixel (3 bits/pixel), leaving the image visually unchanged.
-- **AES-256-GCM Encryption (optional)** — messages can be encrypted with a passphrase before embedding, using PBKDF2 (100,000 iterations, SHA-256) for key derivation.
-- **HMAC-SHA256 Integrity Check (optional)** — an independent authenticity passphrase can be set so a recipient can verify the payload hasn't been tampered with, separate from the encryption passphrase.
+- **Two independent, optional passphrases** — one for confidentiality, one for authenticity. They're separate on purpose:
+  - **AES-256-GCM Encryption** (confidentiality) — encrypts the message with an *encryption passphrase* before embedding, using PBKDF2 (100,000 iterations, SHA-256) for key derivation. Without this passphrase, no one can read the message even if they know it's hidden in the image.
+  - **HMAC-SHA256 Integrity Check** (authenticity) — signs the payload with a separate *integrity passphrase* so a recipient can verify the message genuinely came from you and wasn't tampered with, independent of whether encryption is enabled. You can reuse the same passphrase for both if you don't need that separation, or use different ones for a stronger boundary between "who can read it" and "who can prove it's genuine."
 - **SHA-256 Corruption Check** — every payload embeds a SHA-256 digest, so corrupted or truncated extractions are caught immediately with a clear error instead of returning garbage.
 - **Capacity Meter** — live feedback on how much of the image's embedding capacity your message will use before you hit "Generate."
 - **Password Strength Meter** — quick feedback while choosing an encryption passphrase.
@@ -75,6 +76,19 @@ capacity (bytes) = (width × height × 3) / 8
 - `flags` bit 1 → an HMAC is present for integrity/authenticity verification
 
 On extraction, the SHA-256 is always checked first (catches corruption/truncation). If an HMAC is present, it's verified next using the integrity passphrase the recipient enters (catches tampering by anyone who doesn't know that passphrase). Only after both checks pass is the payload decrypted (if encrypted) and shown to the user.
+
+### Two Passphrases, Two Different Jobs
+
+The UI has two separate passphrase fields because they answer two different questions:
+
+| | Encryption Passphrase | Integrity Passphrase |
+|---|---|---|
+| **Question it answers** | "Can you read this?" | "Is this really from who it claims to be, unaltered?" |
+| **Property** | Confidentiality | Authenticity / tamper-evidence |
+| **Primitive** | AES-256-GCM | HMAC-SHA256 |
+| **Required together?** | No — either can be enabled independently | No — either can be enabled independently |
+
+They can be set to the same value if you don't need the distinction, or kept different so that, for example, someone could verify a message is authentic without necessarily being able to decrypt it (or vice versa).
 
 ### Crypto Details
 

@@ -125,33 +125,22 @@
                             <!-- Encryption Options -->
                             <div class="card">
                                 <div class="card__body">
-                                    <h3>3. Encryption (Optional)</h3>
+                                    <h3>3. Encryption &amp; Integrity (Optional)</h3>
+
+                                    <!-- Confidentiality: AES Encryption -->
                                     <div class="form-group">
+                                        <label class="form-label" style="margin-bottom:2px;">Confidentiality</label>
                                         <label class="toggle-wrapper">
                                             <input type="checkbox" id="encryptionToggle">
                                             <span class="toggle-slider"></span>
                                             <span class="toggle-label">Enable AES Encryption</span>
                                         </label>
-                                    </div>
-
-                                    <!-- Integrity HMAC (optional) -->
-                                    <div class="form-group" id="integrityGroup">
-                                        <label class="form-label">
-                                            <input type="checkbox" id="integrityToggle" />
-                                            <span style="margin-left:8px">Add Integrity HMAC (optional)</span>
-                                        </label>
-
-                                        <div id="integrityPassWrap" style="margin-top:8px; display:none;">
-                                            <input id="integrityPassphrase" type="password" class="form-control"
-                                              placeholder="Integrity passphrase (required if checked)"
-                                              aria-label="Integrity passphrase" />
-                                            <small class="form-note">Recipients must enter this passphrase to verify authenticity. Recommended to reuse encryption passphrase when possible.</small>
-                                        </div>
+                                        <p class="form-hint">Encrypts your message so its contents stay secret — anyone who extracts the hidden data still can't read it without this passphrase.</p>
                                     </div>
 
                                     <div id="encryptionOptions" class="encryption-options hidden">
                                         <div class="form-group">
-                                            <label class="form-label" for="passphrase">Passphrase</label>
+                                            <label class="form-label" for="passphrase">Encryption Passphrase</label>
                                             <input type="password" id="passphrase" class="form-control" placeholder="Enter a strong passphrase">
                                             <div id="passphraseStrength" class="password-strength">
                                                 <div class="strength-bar">
@@ -159,6 +148,27 @@
                                                 </div>
                                                 <span class="strength-text">Enter passphrase</span>
                                             </div>
+                                        </div>
+                                    </div>
+
+                                    <div style="margin: var(--space-16) 0; border-top: 1px solid var(--color-border);"></div>
+
+                                    <!-- Authenticity: Integrity HMAC -->
+                                    <div class="form-group" id="integrityGroup">
+                                        <label class="form-label" style="margin-bottom:2px;">Authenticity</label>
+                                        <label class="toggle-wrapper">
+                                            <input type="checkbox" id="integrityToggle" />
+                                            <span class="toggle-slider"></span>
+                                            <span class="toggle-label">Add Integrity Check (HMAC)</span>
+                                        </label>
+                                        <p class="form-hint">Lets the recipient verify the message is genuinely from you and hasn't been tampered with — this works independently of encryption.</p>
+
+                                        <div id="integrityPassWrap" style="margin-top:12px; display:none;">
+                                            <label class="form-label" for="integrityPassphrase">Integrity Passphrase</label>
+                                            <input id="integrityPassphrase" type="password" class="form-control"
+                                              placeholder="Required if checked"
+                                              aria-label="Integrity passphrase" />
+                                            <small class="form-note">Recipients must enter this exact passphrase to verify authenticity. It can match your encryption passphrase, or be different for extra separation between "who can read it" and "who can prove it's genuine."</small>
                                         </div>
                                     </div>
                                 </div>

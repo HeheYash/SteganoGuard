@@ -3,6 +3,15 @@
 All notable changes to this project are documented here.
 This project follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) conventions.
 
+## [1.1.0] — 2026-07-05
+
+### Fixed
+- AES Encryption toggle switch didn't visually animate — the Integrity HMAC block had been nested between the checkbox and its `.toggle-slider` in the markup, breaking the `input:checked + .toggle-slider` CSS sibling selector the switch relies on. The checkbox's state still worked correctly (JS-driven behavior was unaffected), only the visual slider was stuck.
+
+### Changed
+- Clarified the UI and README around the two independent optional passphrases: renamed the plain "Passphrase" field to "Encryption Passphrase" and added a matching "Integrity Passphrase" label, added "Confidentiality" / "Authenticity" section headers and explanatory hint text so it's clear these protect against different things (message secrecy vs. tamper/authenticity verification) rather than being duplicate fields.
+- Integrity HMAC toggle now uses the same animated switch style as the encryption toggle, instead of a plain checkbox.
+
 ## [1.0.0] — 2026-07-05
 
 ### Added
