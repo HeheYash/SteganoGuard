@@ -1,0 +1,31 @@
+name: Lint
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install linters
+        run: npm install --no-save eslint@8 htmlhint stylelint
+
+      - name: Lint JavaScript
+        run: npx eslint app.js --no-eslintrc --env browser,es2021 --parser-options=ecmaVersion:2021
+
+      - name: Lint HTML
+        run: npx htmlhint index.html
+
+      - name: Lint CSS
+        run: npx stylelint style.css

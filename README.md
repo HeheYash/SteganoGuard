@@ -1,10 +1,33 @@
 # SteganoGuard
 
+[![Lint](https://github.com/<your-username>/SteganoGuard/actions/workflows/lint.yml/badge.svg)](https://github.com/<your-username>/SteganoGuard/actions/workflows/lint.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![No dependencies](https://img.shields.io/badge/dependencies-none-brightgreen.svg)](#tech-stack)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-blueviolet.svg)](CONTRIBUTING.md)
+
 A client-side, browser-based steganography tool that hides secret messages inside PNG/BMP images using LSB (Least Significant Bit) encoding, with optional AES-256-GCM encryption and HMAC-SHA256 integrity verification.
 
 Everything runs **entirely in the browser** — no server, no upload, no backend. Images and messages never leave the user's machine.
 
-**[Live Demo](#)** · **[Report a Bug](../../issues)**
+**[Live Demo](#)** · **[Report a Bug](.github/ISSUE_TEMPLATE/bug_report.md)** · **[Request a Feature](.github/ISSUE_TEMPLATE/feature_request.md)**
+
+> Replace `<your-username>` in the badge URL above with your actual GitHub username once pushed, and swap in a real Live Demo link if you deploy it (see [Deployment](#deployment)).
+
+---
+
+## Table of Contents
+
+- [Features](#features)
+- [Screenshots](#screenshots)
+- [How It Works](#how-it-works)
+- [Getting Started](#getting-started)
+- [Usage](#usage)
+- [Deployment](#deployment)
+- [Tech Stack](#tech-stack)
+- [Security Notes & Limitations](#security-notes--limitations)
+- [Known Limitations / Roadmap](#known-limitations--roadmap)
+- [Contributing](#contributing)
+- [License](#license)
 
 ---
 
@@ -18,6 +41,14 @@ Everything runs **entirely in the browser** — no server, no upload, no backend
 - **Password Strength Meter** — quick feedback while choosing an encryption passphrase.
 - **Drag-and-drop uploads**, text file import for messages, dark mode, and toast notifications.
 - **Backward-compatible extraction** — can still read the legacy `STEG1` header format from earlier versions of the tool.
+
+## Screenshots
+
+> Add your own screenshots to the `screenshots/` folder — see [screenshots/README.md](screenshots/README.md) for guidance — then swap these placeholders for real `![alt](screenshots/your-file.png)` images.
+
+| Hide Message | Extract Message |
+|---|---|
+| *(screenshot placeholder)* | *(screenshot placeholder)* |
 
 ## How It Works
 
@@ -86,6 +117,16 @@ python3 -m http.server 8000
 2. Enter the decryption passphrase (if it was encrypted) and/or the integrity passphrase (if one was set).
 3. Click **Extract Hidden Message**.
 
+## Deployment
+
+Since this is a fully static site with no build step, [GitHub Pages](https://pages.github.com/) is the simplest way to host a live demo:
+
+1. Push this repo to GitHub.
+2. Go to **Settings → Pages**.
+3. Under "Build and deployment," set **Source** to `Deploy from a branch`, branch `main`, folder `/ (root)`.
+4. Save — your live demo will be at `https://<your-username>.github.io/SteganoGuard/`.
+5. Update the "Live Demo" link at the top of this README with that URL.
+
 ## Tech Stack
 
 - Vanilla JavaScript (ES6+, no frameworks)
@@ -113,7 +154,11 @@ This is a learning/portfolio project demonstrating applied cryptography and steg
 
 ## Contributing
 
-Issues and pull requests are welcome. For larger changes, please open an issue first to discuss what you'd like to change.
+Issues and pull requests are welcome — see [CONTRIBUTING.md](CONTRIBUTING.md) for setup, testing expectations, and code style.
+
+Found a security issue? Please follow [SECURITY.md](SECURITY.md) instead of opening a public issue.
+
+See [CHANGELOG.md](CHANGELOG.md) for release history.
 
 ## License
 
