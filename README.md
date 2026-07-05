@@ -1,6 +1,6 @@
 # SteganoGuard
 
-[![Lint](https://github.com/<your-username>/SteganoGuard/actions/workflows/lint.yml/badge.svg)](https://github.com/<your-username>/SteganoGuard/actions/workflows/lint.yml)
+[![Lint](https://github.com/HeheYash/SteganoGuard/actions/workflows/lint.yml/badge.svg)](https://github.com/HeheYash/SteganoGuard/actions/workflows/lint.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![No dependencies](https://img.shields.io/badge/dependencies-none-brightgreen.svg)](#tech-stack)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-blueviolet.svg)](CONTRIBUTING.md)
@@ -9,9 +9,9 @@ A client-side, browser-based steganography tool that hides secret messages insid
 
 Everything runs **entirely in the browser** — no server, no upload, no backend. Images and messages never leave the user's machine.
 
-**[Live Demo](#)** · **[Report a Bug](.github/ISSUE_TEMPLATE/bug_report.md)** · **[Request a Feature](.github/ISSUE_TEMPLATE/feature_request.md)**
+**[Live Demo](https://HeheYash.github.io/SteganoGuard/)** · **[Report a Bug](.github/ISSUE_TEMPLATE/bug_report.md)** · **[Request a Feature](.github/ISSUE_TEMPLATE/feature_request.md)**
 
-> Replace `<your-username>` in the badge URL above with your actual GitHub username once pushed, and swap in a real Live Demo link if you deploy it (see [Deployment](#deployment)).
+> If the Live Demo link 404s, GitHub Pages hasn't been enabled yet — see [Deployment](#deployment) for the one-time setup.
 
 ---
 
@@ -93,7 +93,7 @@ All cryptographic operations use the browser's native [Web Crypto API](https://d
 No build step, no dependencies. It's a static site.
 
 ```bash
-git clone https://github.com/<your-username>/SteganoGuard.git
+git clone https://github.com/HeheYash/SteganoGuard.git
 cd SteganoGuard
 ```
 
@@ -124,7 +124,7 @@ Since this is a fully static site with no build step, [GitHub Pages](https://pag
 1. Push this repo to GitHub.
 2. Go to **Settings → Pages**.
 3. Under "Build and deployment," set **Source** to `Deploy from a branch`, branch `main`, folder `/ (root)`.
-4. Save — your live demo will be at `https://<your-username>.github.io/SteganoGuard/`.
+4. Save — your live demo will be at `https://HeheYash.github.io/SteganoGuard/`.
 5. Update the "Live Demo" link at the top of this README with that URL.
 
 ## Tech Stack
