@@ -129,25 +129,26 @@
                                     <div class="form-group">
                                         <label class="toggle-wrapper">
                                             <input type="checkbox" id="encryptionToggle">
-                                            <!-- Integrity HMAC (optional) -->
-<div class="form-group" id="integrityGroup">
-  <label class="form-label">
-    <input type="checkbox" id="integrityToggle" />
-    <span style="margin-left:8px">Add Integrity HMAC (optional)</span>
-  </label>
-
-  <div id="integrityPassWrap" style="margin-top:8px; display:none;">
-    <input id="integrityPassphrase" type="password" class="form-control"
-      placeholder="Integrity passphrase (required if checked)"
-      aria-label="Integrity passphrase" />
-    <small class="form-note">Recipients must enter this passphrase to verify authenticity. Recommended to reuse encryption passphrase when possible.</small>
-  </div>
-</div>
-
                                             <span class="toggle-slider"></span>
                                             <span class="toggle-label">Enable AES Encryption</span>
                                         </label>
                                     </div>
+
+                                    <!-- Integrity HMAC (optional) -->
+                                    <div class="form-group" id="integrityGroup">
+                                        <label class="form-label">
+                                            <input type="checkbox" id="integrityToggle" />
+                                            <span style="margin-left:8px">Add Integrity HMAC (optional)</span>
+                                        </label>
+
+                                        <div id="integrityPassWrap" style="margin-top:8px; display:none;">
+                                            <input id="integrityPassphrase" type="password" class="form-control"
+                                              placeholder="Integrity passphrase (required if checked)"
+                                              aria-label="Integrity passphrase" />
+                                            <small class="form-note">Recipients must enter this passphrase to verify authenticity. Recommended to reuse encryption passphrase when possible.</small>
+                                        </div>
+                                    </div>
+
                                     <div id="encryptionOptions" class="encryption-options hidden">
                                         <div class="form-group">
                                             <label class="form-label" for="passphrase">Passphrase</label>
